@@ -1,0 +1,16 @@
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+  <h3>{{ product.name }}</h3>
+  <h4>{{ product.price | currency }}</h4>
+
+  <p *ngIf="product.description; else other_content">
+    {{ product.description }}
+  </p>
+
+  <ng-template #other_content>
+    <p>Description not available.</p>
+  </ng-template>
+
+  <button type="button" (click)="addToCart(product)">Buy</button>
+</div>
